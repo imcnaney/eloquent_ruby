@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book>
+		<author>Philip K. Dick</author>
+		<title>The Unteleported Man</title>
+	</book>
+	<book>
+		<author>Albert Einstein</author>
+		<title>The World as I See It</title>
+	</book>
+	<book>
+		<author>Ernest Hemingway</author>
+		<title>A Farewell To Arms</title>
+	</book>
+</books>
