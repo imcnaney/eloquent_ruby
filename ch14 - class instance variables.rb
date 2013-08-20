@@ -22,9 +22,9 @@ end
 
 class ExampleTest < Test::Unit::TestCase
   def test_class_instance_variable
-    assert_equal(Example.default_value(), 3)
+    assert_equal(3, Example.default_value())
     Example.default_value = 5
-    assert_equal(Example.default_value, 5)
+    assert_equal(5, Example.default_value)
   end
 end
 
@@ -39,8 +39,8 @@ end
 
 class ExampleTwoTest < Test::Unit::TestCase
   def test_example_two
-    assert_equal(ExampleTwo.default_value, 3)
+    assert_equal(3, ExampleTwo.default_value)
     ExampleTwo.default_value = 5
-    assert_equal(ExampleTwo.default_value, 5)
+    assert_equal(5, ExampleTwo.default_value)
   end
 end

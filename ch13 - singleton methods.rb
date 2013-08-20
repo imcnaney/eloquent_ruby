@@ -42,7 +42,7 @@ class Examples < Test::Unit::TestCase
     def foo.a_method
       "A method was called"
     end
-    assert_equal(foo.a_method, "A method was called")
+    assert_equal("A method was called", foo.a_method)
   end
   
   def test_a_singleton_method_alternate_syntax
@@ -52,7 +52,7 @@ class Examples < Test::Unit::TestCase
         "Another method"
       end
     end
-    assert_equal(foo.another_method, "Another method")
+    assert_equal("Another method", foo.another_method)
   end
   
   def test_getting_the_singleton_class
@@ -69,8 +69,8 @@ class Examples < Test::Unit::TestCase
     end
     
     thingy = Thingy.new("Bacon")
-    assert_equal(thingy.instance_method(), "Instance method says Bacon")
-    assert_equal(Thingy.class_method(), "Class method")
+    assert_equal("Instance method says Bacon", thingy.instance_method())
+    assert_equal("Class method", Thingy.class_method())
     
     #Instances don't know about the class methods since they exist on the Class, not the instance
     assert_raise NoMethodError do
@@ -78,12 +78,12 @@ class Examples < Test::Unit::TestCase
     end
     
     #But you can get the Class from the instance
-    assert_equal(thingy.class.class_method(), "Class method")
+    assert_equal("Class method", thingy.class.class_method())
     
-    assert_equal(Thingy.original_class_method(), "Original class method")
+    assert_equal("Original class method", Thingy.original_class_method())
   end
   
   def test_alternate_class_method
-    assert_equal(Thingy.alternate, "Alternate")
+    assert_equal("Alternate", Thingy.alternate)
   end
 end

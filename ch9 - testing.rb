@@ -24,7 +24,7 @@ class FizzBuzzTests < Test::Unit::TestCase
   
   def test_zero_result()
     result = @fizzbuzz.fizz_buzz(0)
-    assert_equal(result, "FizzBuzz")
+    assert_equal("FizzBuzz", result)
   end
   
   def test_negative_ten_to_ten()
@@ -37,50 +37,50 @@ class FizzBuzzTests < Test::Unit::TestCase
   
   def test_multiples_of_3_but_not_5
     expected = "Fizz"
-    assert_equal( @fizzbuzz.fizz_buzz(3), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(6), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(9), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-3), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-6), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-9), expected )
+    assert_equal(expected, @fizzbuzz.fizz_buzz(3))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(6))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(9))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-3))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-6))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-9))
   end
   
   def test_multiples_of_5_but_not_3
     expected = "Buzz"
-    assert_equal( @fizzbuzz.fizz_buzz(5), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(10), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(20), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(25), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-5), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-10), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-20), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-25), expected )
+    assert_equal(expected, @fizzbuzz.fizz_buzz(5))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(10))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(20))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(25))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-5))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-10))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-20))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-25))
   end
   
   def test_multiples_of_3_and_5
     expected = "FizzBuzz"
-    assert_equal( @fizzbuzz.fizz_buzz(15), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(30), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(45), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-45), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-30), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(-15), expected )
-    assert_equal( @fizzbuzz.fizz_buzz(0), expected )
+    assert_equal(expected, @fizzbuzz.fizz_buzz(15))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(30))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(45))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-45))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-30))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(-15))
+    assert_equal(expected, @fizzbuzz.fizz_buzz(0))
   end
   
   def test_multiples_of_neither_3_nor_5
-    assert_equal( @fizzbuzz.fizz_buzz(1), 1 )
-    assert_equal( @fizzbuzz.fizz_buzz(2), 2 )
-    assert_equal( @fizzbuzz.fizz_buzz(4), 4 )
-    assert_equal( @fizzbuzz.fizz_buzz(7), 7 )
-    assert_equal( @fizzbuzz.fizz_buzz(-1), -1 )
-    assert_equal( @fizzbuzz.fizz_buzz(-2), -2 )
-    assert_equal( @fizzbuzz.fizz_buzz(-4), -4 )
-    assert_equal( @fizzbuzz.fizz_buzz(-7), -7)
+    assert_equal(1, @fizzbuzz.fizz_buzz(1))
+    assert_equal(2, @fizzbuzz.fizz_buzz(2))
+    assert_equal(4, @fizzbuzz.fizz_buzz(4))
+    assert_equal(7, @fizzbuzz.fizz_buzz(7))
+    assert_equal(-1, @fizzbuzz.fizz_buzz(-1))
+    assert_equal(-2, @fizzbuzz.fizz_buzz(-2))
+    assert_equal(-4, @fizzbuzz.fizz_buzz(-4))
+    assert_equal(-7, @fizzbuzz.fizz_buzz(-7))
   end
   
   def test_very_large_value
-    assert_equal( @fizzbuzz.fizz_buzz(15000000000000000000), "FizzBuzz")
+    assert_equal("FizzBuzz", @fizzbuzz.fizz_buzz(15000000000000000000))
   end
   
   #There are other assertions like assert_not_equal, assert_nil, assert_not_nil
