@@ -2,7 +2,7 @@
 #
 # Copyright 2013 Ian McNaney
 #
-# Some examples inspired by Chapter 13
+# Some examples inspired by Chapter 14
 #
 # Summary: Class variables (@@foo) behave oddly.  Don't use them.
 # Use class instance variables instead.
