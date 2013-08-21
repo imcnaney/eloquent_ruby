@@ -26,7 +26,7 @@
 require "test/unit"
 
 class CallbackExample
-  def initialize()
+  def initialize
     @callbacks = []
   end
   
@@ -34,8 +34,9 @@ class CallbackExample
     @callbacks << block
   end
   
-  #the callbacks can take parameters
-  def run_callbacks()
+  #the callbacks can take parameters, provided to the call method, 
+  #that correspond to variables defined for the block
+  def run_callbacks
     @callbacks.each { |callback| callback.call }
   end
 end
@@ -61,7 +62,7 @@ class LazyLoad
     @lazy_loader = block
   end
   
-  def expensive_thing()
+  def expensive_thing
     @expensive_thing ||= @lazy_loader.call
   end
 end
@@ -93,7 +94,7 @@ end
 
 class LambdaTest < Test::Unit::TestCase
   def test_lambda
-    foo = LambdaExample.new()
+    foo = LambdaExample.new
     foo.go
     assert_equal(1, foo.sum)
   end
