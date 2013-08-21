@@ -45,8 +45,6 @@ class InheritedHookTest < Test::Unit::TestCase
   #observe that both MySubclass and MySubSubclass are included in MyClass's subclasses
   #MySubclass inherits the hook that refers to MyClass.subclasses so when it is subclassed it adds its
   #subclass to MyClass's list.
-  #If we use the mixin defined above then it'll simply not register MySubSubclass since MySubclass doesn't
-  #have a @subclasses array, and the inherited method does nothing in that case.
   def test_inherited_hook
     assert_equal([MySubclass, MySubSubclass], MyClass.subclasses)
   end
