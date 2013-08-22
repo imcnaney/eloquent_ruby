@@ -41,3 +41,18 @@ class ContrivedAPITest < Test::Unit::TestCase
     assert(!Contrived.respond_to?(:flail_about))
   end
 end
+
+## A real example of this behavior is Openstruct.  It wraps a hash
+# to behave like an object, so rather than using hash['foo'] it understands hash.foo
+require 'ostruct'
+
+class OpenStructTest < Test::Unit::TestCase
+  def test_open_struct
+    bob = OpenStruct.new
+    bob.thing = "thing"
+    bob.another_thing = "another thing"
+    assert_equal("thing", bob.thing)
+    assert_equal("another thing", bob.another_thing)
+  end
+end
+
