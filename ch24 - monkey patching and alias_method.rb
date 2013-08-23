@@ -1,4 +1,4 @@
-# method_missing for APIs - Chapter 24 of Eloquent Ruby
+# Monkey patching and alias_method - Chapter 24 of Eloquent Ruby
 #
 # Copyright 2013 Ian McNaney
 #
