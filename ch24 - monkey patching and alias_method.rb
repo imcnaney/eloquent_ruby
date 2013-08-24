@@ -53,11 +53,15 @@ class MonkeyPatchTest < Test::Unit::TestCase
   
   def test_string_plus_widget
     widget = Widget.new("def")
-    assert_equal("abc def", "abc " + widget)
+    str = "abc "
+    assert_equal("abc def", str + widget)
+    assert_equal("abc ", str)
   end
   
   def test_new_method
-    assert_equal("Roger!", "Roger".with_gusto)
+    str = "Roger"
+    assert_equal("Roger!", str.with_gusto)
+    assert_equal("Roger", str)
   end
   
   def test_extended_string
