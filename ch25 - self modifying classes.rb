@@ -85,6 +85,22 @@ class Goose
     end
   end
   
+  def gen_speak_with_block_and_def_singleton(&block)
+    define_singleton_method(:speak, &block)
+  end
+  
+  #I don't like having to manually insert @speak_count += 1 in the block.
+  def new_speak_auto_count(&block)
+    define_singleton_method(:speak, with_count(&block))
+  end
+  
+  def with_count()
+    lambda do
+      @speech_count += 1
+      yield
+    end
+  end
+  
 end
 
 class GooseTest < Test::Unit::TestCase
@@ -145,5 +161,26 @@ class GooseTest < Test::Unit::TestCase
     assert_equal("Hello.  Speech count is: 1", goose.speak)
     assert_equal("Hello.  Speech count is: 2", goose.speak)
     assert_equal(2, goose.speech_count)
+  end
+  
+  #Note that we can refer to instance variables within the block
+  def test_block_and_define_singleton
+    goose = Goose.new
+    goose2 = Goose.new
+    message = "Welcome to the goose chase."
+    goose.gen_speak_with_block_and_def_singleton { @speech_count += 1; message }
+    assert_equal(message, goose.speak)
+    assert_equal(1, goose.speech_count)
+    goose.speak
+    assert_equal(2, goose.speech_count)
+    assert_equal("Honk", goose2.speak)
+    assert_equal(1, goose2.speech_count)
+  end
+  
+  def test_block_and_auto_count
+    goose = Goose.new
+    goose.new_speak_auto_count { "Howdy" }
+    assert_equal("Howdy", goose.speak)
+    assert_equal(1, goose.speech_count())
   end
 end
