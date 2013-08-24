@@ -49,7 +49,8 @@ class Goose
   end
   
   #Generate and store a lambda and redefine the speak method to call it
-  #This has the same effect as setting a singleton method on an instance
+  #This has the same effect as creating a singleton method even though the mechanism
+  #is slightly different
   def gen_speak(message)
     @speak_lambda = lambda do
       @speech_count += 1
@@ -60,7 +61,7 @@ class Goose
     end
   end
   
-  #Note that this creates a class method
+  #Note that this redefines the method for all instances
   def gen_speak_with_define_method(message)
     self.class.send(:define_method, :speak) do
       @speech_count += 1
